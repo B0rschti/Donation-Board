@@ -11,6 +11,10 @@
         "host": "localhost",
         "database": "donation_board"
     },
+    /*
+    "databaseConfig": {
+        "path": "/../data"
+    },*/
     
     "view engines": {
         "js": {
