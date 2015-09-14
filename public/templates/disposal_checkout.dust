@@ -18,6 +18,10 @@
                     <div class="pull-left">{item.name}</div> <div class="pull-right">{quantity}</div>
                 </div>
             {/disposal.items}
+
+            <div>
+                <a href="/" class="btn btn-primary"><span class="fa fa-mail-reply"></span> zur&uuml;ck zur Personenliste</a>
+            </div>
         </div>
         </div>
     </section><!-- /.content -->
