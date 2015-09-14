@@ -28,13 +28,12 @@ module.exports = function (router) {
 
     router.get('/new/:_id', function (req, res) {
 
-        Person.findOne({_id: req.params._id}, function (err, person) {
+        Person.findOne({_id: req.params._id}).populate('notes').exec(function (err, person) {
             ObjectModel.find({}).sort({name: 'ascending'}).exec(function (err, objects) {
 
                 var objectList = [];
 
                 objects.forEach(function (object) {
-                    console.log(object._id);
                     objectList.push({
                         item: object,
                         quantity: 0

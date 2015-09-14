@@ -22,7 +22,7 @@
 
                   <div class="row">
 
-                      <div class="col-sm-8">
+                      <div class="col-sm-7">
 
 
                         <div class="infos row" style="margin-bottom: 20px;">
@@ -61,18 +61,27 @@
                         </div>
                       </div>
 
-                      <div class="col-sm-4">
+                      <div class="col-sm-5">
                           <div class="notes">
                             <h4>Notizen</h4>
 
-                            <form class="form">
+                            <form class="form" method="post" action="/person/note/add">
                                 <div class="form-group">
-                                <textarea class="form-control" placeholder="Notiz"></textarea>
+                                <input type="hidden" name="_csrf" value="{_csrf}">
+                                <input type="hidden" name="_id" value="{person._id}">
+                                <textarea name="text" class="form-control" placeholder="Notiz"></textarea>
                                 </div>
                                 <div class="form-group">
                                 <input type="submit" class="form-control" value="Speichern">
                                 </div>
                             </form>
+
+                            {#person.notes}
+                                <div class="alert alert-info">
+                                    <p>{text}</p>
+                                    <a href="/person/note/remove/{person._id}/{_id}">l&ouml;schen</a>
+                                </div>
+                            {/person.notes}
                           </div>
                       </div>
                   </div>

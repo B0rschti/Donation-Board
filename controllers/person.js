@@ -1,6 +1,7 @@
 'use strict';
 
 var Person = require('../models/Person');
+var Note = require('../models/Note');
 var Disposal = require('../models/Disposal');
 
 module.exports = function (router) {
@@ -19,7 +20,7 @@ module.exports = function (router) {
 
         var id = req.params._id;
 
-        Person.findOne({_id: id}, function(err, person){
+        Person.findOne({_id: id}).populate('notes').exec(function(err, person){
 
             Disposal.find({person: person._id}).sort({date: 'descending'}).populate('person').populate('items.item').exec(function(err, disposals){
                 res.render('person_show', {
@@ -100,6 +101,44 @@ module.exports = function (router) {
 
         Person.remove({_id: id}, function(err, person){
             res.redirect('/person');
+        });
+    });
+
+    router.post('/note/add', function(req, res){
+        var _id = req.body._id;
+        var text = req.body.text;
+
+        if(!text || text == ''){
+            res.redirect('/person/show/'+_id);
+            return;
+        }
+
+        Person.findOne({_id: _id}, function(err, person){
+            var note = new Note({
+                text: text
+            });
+
+            note.save(function(err, note){
+                person.notes.push(note._id);
+                person.save(function(err, person){
+                    res.redirect('/person/show/'+_id);
+                });
+            });
+        });
+    });
+
+    router.get('/note/remove/:_pid/:_nid', function(req, res){
+        var _pid = req.params._pid;
+        var _nid = req.params._nid;
+
+        Person.findOne({_id: _pid}, function(err, person){
+            Note.findOne({_id: _nid}, function(err, note){
+                person.notes.pull({_id: _nid});
+                note.remove();
+                person.save(function(err, data){
+                    res.redirect('/person/show/'+_pid);
+                });
+            });
         });
     });
 };

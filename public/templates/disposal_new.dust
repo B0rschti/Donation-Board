@@ -26,11 +26,58 @@
                 <input type="hidden" name="disposal", value="disposal._id">
 
                 <div class="col-sm-12">
-                    <div class="app-box" style="margin-bottom: 10px">{person.first_name}, {person.last_name}</div>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="info-box">
+                              <!-- Apply any bg-* class to to the icon to color it -->
+                              <span class="info-box-icon bg-blue"><i class="fa fa-user"></i></span>
+                              <div class="info-box-content">
+                                <span class="info-box-text">Name</span>
+                                <span class="info-box-number">{person.first_name}<br>{person.last_name}</span>
+                              </div><!-- /.info-box-content -->
+                            </div><!-- /.info-box -->
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="info-box">
+                                <!-- Apply any bg-* class to to the icon to color it -->
+                                <span class="info-box-icon bg-red"><i class="fa fa-plus"></i></span>
+                                <div class="info-box-content">
+                                    <span class="info-box-text">DRK Nummer</span>
+                                    <span class="info-box-number">{person.drk}</span>
+                                </div><!-- /.info-box-content -->
+                            </div><!-- /.info-box -->
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="info-box">
+                                <!-- Apply any bg-* class to to the icon to color it -->
+                                <span class="info-box-icon bg-aqua"><i class="fa fa-comments"></i></span>
+                                <div class="info-box-content">
+                                    <span class="info-box-text">Sprache</span>
+                                    <span class="info-box-number">{person.lang}</span>
+                                </div><!-- /.info-box-content -->
+                            </div><!-- /.info-box -->
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="info-box">
+                                <!-- Apply any bg-* class to to the icon to color it -->
+                                <span class="info-box-icon bg-aqua"><i class="fa fa-globe"></i></span>
+                                <div class="info-box-content">
+                                    <span class="info-box-text">Land</span>
+                                    <span class="info-box-number">{person.origin}</span>
+                                </div><!-- /.info-box-content -->
+                            </div><!-- /.info-box -->
+                        </div>
+                    </div>
                 </div>
 
                 <div class="col-sm-12">
                     <h3>Notizen</h3>
+
+                    {#person.notes}
+                        <div class="alert alert-info">
+                            <p>{text}</p>
+                        </div>
+                    {/person.notes}
                 </div>
 
                 <div class="col-sm-12">
