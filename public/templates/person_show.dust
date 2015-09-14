@@ -1,0 +1,94 @@
+{>"layouts/master" /}
+
+{<body}
+    <!-- Content Header (Page header) -->
+                <section class="content-header">
+                  <h1>
+                    {person.first_name}, {person.last_name}
+                  </h1>
+                </section>
+
+                <!-- Main content -->
+                <section class="content">
+                    <div class="row" style="margin-bottom: 20px;">
+                    <div class="col-sm-3">
+                        <a href="/person/edit/{person._id}" class="btn btn-primary btn-block">Person bearbeiten</a>
+                    </div>
+                    <div class="col-sm-3">
+                        <a href="/person/delete/{person._id}" class="btn btn-danger btn-block">Person l&ouml;schen</a>
+                    </div>
+                    </div>
+
+
+                  <div class="row">
+
+                      <div class="col-sm-8">
+
+
+                        <div class="infos row" style="margin-bottom: 20px;">
+                            <div class="col-sm-12">
+                                <h4>Infos</h4>
+                            </div>
+                            <div class="col-sm-4">
+                                DRK Nummer: <strong>{person.drk}</strong>
+                            </div>
+                            <div class="col-sm-4">
+                                Sprache: <strong>{person.lang}</strong>
+                            </div>
+                            <div class="col-sm-4">
+                                Land: <strong>{person.origin}</strong>
+                            </div>
+                        </div>
+
+                        <div class="history">
+                            <h4>Verlauf</h4>
+
+                            {#disposals}
+
+                                    {date}
+
+                                    {#items}
+                                        <div class="app-box clearfix">
+                                            <div class="pull-left">
+                                                {?item.name}{item.name}{:else}gel&ouml;schter Artikel{/item.name}
+                                            </div>
+                                            <div class="pull-right">
+                                                {quantity}
+                                            </div>
+                                        </div>
+                                    {/items}
+                            {/disposals}
+                        </div>
+                      </div>
+
+                      <div class="col-sm-4">
+                          <div class="notes">
+                            <h4>Notizen</h4>
+
+                            <form class="form">
+                                <div class="form-group">
+                                <textarea class="form-control" placeholder="Notiz"></textarea>
+                                </div>
+                                <div class="form-group">
+                                <input type="submit" class="form-control" value="Speichern">
+                                </div>
+                            </form>
+                          </div>
+                      </div>
+                  </div>
+
+                </section><!-- /.content -->
+
+                <style>
+                    .app-box{
+                        display: block;
+                        padding: 10px;
+                        background-color: #fff;
+                        margin-bottom: 10px;
+                        border: 1px solid #ddd;
+                        font-size: 16px;
+                    }
+
+
+                </style>
+{/body}

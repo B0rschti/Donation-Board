@@ -1,0 +1,78 @@
+{>"layouts/master" /}
+
+{<body}
+    <section class="content-header">
+        {@gt key=messages.length value=0}
+                                <div class="messages">
+                                    {#messages}
+                                        <div class="alert alert-danger">
+                                            <p>{text}</p>
+                                        </div>
+                                    {/messages}
+                                </div>
+                             {/gt}
+
+                  <h1>
+                    Auswahl f&uuml;r {person.first_name} {person.last_name}
+                    <small>ausw&auml;hlen</small>
+                  </h1>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <form class="form" method="post">
+            <div class="row">
+                <input type="hidden" name="_csrf" value="{_csrf}">
+                <input type="hidden" name="disposal", value="disposal._id">
+
+                <div class="col-sm-12">
+                    <div class="app-box" style="margin-bottom: 10px">{person.first_name}, {person.last_name}</div>
+                </div>
+
+                <div class="col-sm-12">
+                    <h3>Notizen</h3>
+                </div>
+
+                <div class="col-sm-12">
+                    <h3>Auswahl</h3>
+
+                    <div class="clearfix" style="margin-bottom: 10px;">
+                        <button class="btn btn-primary pull-right" type="submit"><span class="fa fa-shopping-cart" style="margin-right: 10px"></span> jetzt rausgeben</button>
+                    </div>
+
+                    <div>
+                        {#objects}
+
+                            <div class="app-box clearfix" style="margin-bottom: 10px">
+                                <div class="pull-left" style="padding-top: 5px;">
+                                    {item.name} ({item.quantity} St&uuml;ck)
+                                </div>
+                                <div class="pull-right">
+                                    <input name="items[{item._id}]" type="number" max="{item.quantity}" class="form-control" value="{quantity}" />
+                                </div>
+                            </div>
+                        {/objects}
+                    </div>
+
+                    <div class="clearfix">
+                        <button class="btn btn-primary pull-right" type="submit"><span class="fa fa-shopping-cart" style="margin-right: 10px"></span> jetzt rausgeben</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </section><!-- /.content -->
+
+{/body}
+
+<style>
+    .app-box{
+        display: block;
+        padding: 10px;
+        background-color: #fff;
+        margin-bottom: 10px;
+        border: 1px solid #ddd;
+        font-size: 16px;
+    }
+
+
+</style>

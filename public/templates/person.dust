@@ -1,0 +1,52 @@
+{>"layouts/master" /}
+
+{<body}
+    <!-- Content Header (Page header) -->
+            <section class="content-header">
+              <h1>
+                Personen
+                <small>&uuml;bersicht</small>
+              </h1>
+            </section>
+
+            <!-- Main content -->
+            <section class="content">
+              <div>
+                <a href="/person/edit" class="btn btn-primary">Person hinzuf&uuml;gen</a>
+              </div>
+
+              <div style="margin-top: 20px">
+                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Vorname</th>
+                                            <th>Nachname</th>
+                                            <th>DRK Nummer</th>
+                                            <th>Alter</th>
+                                            <th>Sprache</th>
+                                            <th>Herkunftsland</th>
+                                            <th>Aktion</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                        {#persons}
+                                            <tr>
+                                                <td>{first_name}</td>
+                                                <td>{last_name}</td>
+                                                <td>{drk}</td>
+                                                <td>{age}</td>
+                                                <td>{lang}</td>
+                                                <td>{origin}</td>
+                                                <td>
+                                                    <a href="/person/show/{_id}" class="btn btn-info btn-xs" style="margin-right: 5px;"><span class="fa fa-eye"></span></a>
+                                                    <a href="/person/delete/{_id}" class="btn btn-danger btn-xs"><span class="fa fa-trash"></span></a>
+
+                                                </td>
+                                            </tr>
+                                        {/persons}
+                                    </tbody>
+                                  </table>
+              </div>
+            </section><!-- /.content -->
+{/body}

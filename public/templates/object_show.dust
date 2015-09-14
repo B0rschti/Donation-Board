@@ -1,0 +1,24 @@
+{>"layouts/master" /}
+
+{<body}
+    <!-- Content Header (Page header) -->
+                <section class="content-header">
+                  <h1>
+                    {stockObject.name}
+                    <small>({stockObject.quantity} St&uuml;ck)</small>
+                  </h1>
+
+                </section>
+
+                <!-- Main content -->
+                <section class="content">
+                    <div class="row" style="margin-bottom: 20px;">
+                        <div class="col-sm-2">
+                            <a href="/object/edit/{stockObject._id}" class="btn btn-primary btn-block">Bearbeiten</a>
+                        </div>
+                        <div class="col-sm-2">
+                            <a href="/object/delete/{stockObject._id}" class="btn btn-danger btn-block">L&ouml;schen</a>
+                        </div>
+                    </div>
+                </section><!-- /.content -->
+{/body}

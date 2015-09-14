@@ -1,0 +1,22 @@
+{
+  "name": "DonationBoard",
+  "main": "index.js",
+  "version": "0.0.0",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "AdminLTE": "admin-lte#~2.3.0",
+    "dust-helper-intl": "~1.1.0",
+    "dustjs-helpers": "dustjs-linkedin-helpers#~1.6.1",
+    "dustjs-linkedin": "~2.6.1",
+    "jquery": "~2.1.4",
+    "requirejs": "^2.1.16"
+  }
+}

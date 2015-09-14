@@ -1,0 +1,38 @@
+{>"layouts/master" /}
+
+{<body}
+    <section class="content-header">
+                  <h1>
+                    Ausgabe an {disposal.person.first_name} {disposal.person.last_name}
+                    <small>Best&auml;tigung</small>
+                  </h1>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <h3>Folgende Ausgabe wurde registriert</h3>
+        <div class="row">
+        <div class="items col-sm-6">
+            {#disposal.items}
+                <div class="app-box clearfix">
+                    <div class="pull-left">{item.name}</div> <div class="pull-right">{quantity}</div>
+                </div>
+            {/disposal.items}
+        </div>
+        </div>
+    </section><!-- /.content -->
+
+{/body}
+
+<style>
+    .app-box{
+        display: block;
+        padding: 10px;
+        background-color: #fff;
+        margin-bottom: 10px;
+        border: 1px solid #ddd;
+        font-size: 16px;
+    }
+
+
+</style>

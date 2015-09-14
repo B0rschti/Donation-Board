@@ -1,0 +1,64 @@
+{>"layouts/master" /}
+
+{<body}
+    <section class="content-header">
+                  <h1>
+                    Auswahl f&uuml;r {disposal.person.first_name} {disposal.person.last_name}
+                    <small>ausw&auml;hlen</small>
+                  </h1>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <form class="form" action="/disposal/checkout" method="post">
+            <div class="row">
+                <input type="hidden" name="_csrf" value="{_csrf}">
+                <input type="hidden" name="disposal", value="disposal._id">
+
+                <div class="col-sm-12">
+                    <div class="app-box" style="margin-bottom: 10px">{disposal.person.first_name}, {disposal.person.last_name}</div>
+                </div>
+
+                <div class="col-sm-12">
+                    <h3>Notizen</h3>
+                </div>
+
+                <div class="col-sm-12">
+                    <h3>Auswahl</h3>
+
+                    <div>
+                        {#objects}
+                            <div class="app-box clearfix" style="margin-bottom: 10px">
+                                <div class="pull-left" style="padding-top: 5px;">
+                                    {name} ({quantity}) St&uuml;ck
+                                </div>
+                                <div class="pull-right">
+                                    <input type="number" max="{quantity}" class="form-control" value="0" />
+                                </div>
+                            </div>
+                        {/objects}
+                    </div>
+                </div>
+                <div class="clearfix">
+                    <div class="col-sm-12">
+                        <button class="btn btn-primary pull-right" type="submit"><span class="fa fa-shopping-cart" style="margin-right: 10px"></span> jetzt rausgeben</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </section><!-- /.content -->
+
+{/body}
+
+<style>
+    .app-box{
+        display: block;
+        padding: 10px;
+        background-color: #fff;
+        margin-bottom: 10px;
+        border: 1px solid #ddd;
+        font-size: 16px;
+    }
+
+
+</style>

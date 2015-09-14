@@ -1,0 +1,46 @@
+{>"layouts/master" /}
+
+{<body}
+    <!-- Content Header (Page header) -->
+            <section class="content-header">
+              <h1>
+                Kleidung / Gegenst&auml;nde
+                <small>&uuml;bersicht</small>
+              </h1>
+            </section>
+
+            <!-- Main content -->
+            <section class="content">
+                <div class="row">
+                    <div class="col-sm-3">
+                        <a href="/object/edit" class="btn btn-primary">Hinzuf&uuml;gen</a>
+                    </div>
+
+                </div>
+
+                <div style="margin-top: 20px">
+                                <table class="table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Name</th>
+                                                            <th>Anzahl</th>
+                                                            <th>Aktion</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+
+                                                        {#objects}
+                                                            <tr>
+                                                                <td>{name}</td>
+                                                                <td>{quantity}</td>
+                                                                <td>
+                                                                    <a href="/object/edit/{_id}" class="btn btn-info btn-xs" style="margin-right: 5px;"><span class="fa fa-pencil"></span></a>
+                                                                    <a href="/object/delete/{_id}" class="btn btn-danger btn-xs"><span class="fa fa-trash"></span></a>
+                                                                </td>
+                                                            </tr>
+                                                        {/objects}
+                                                    </tbody>
+                                                  </table>
+                              </div>
+            </section><!-- /.content -->
+{/body}

@@ -1,0 +1,5 @@
+{>"layouts/master" /}
+
+{<body}
+    <h1>History Index</h1>
+{/body}

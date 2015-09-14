@@ -1,0 +1,49 @@
+{>"layouts/master" /}
+
+{<body}
+    <section class="content-header">
+                  <h1>
+                    Person
+                    <small>Bearbeiten</small>
+                  </h1>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+
+        <form method="POST" action="/person/edit" class="form">
+
+                <input type="hidden" name="_csrf" value="{_csrf}">
+                <input type="hidden" name="_id" value="{person._id}"><br>
+             <div class="row">
+                <div class="form-group col-sm-3">
+                    <input type="text" class="form-control" name="first_name" placeholder="Vorname" value="{person.first_name}" required="true">
+                </div>
+
+                <div class="form-group col-sm-3">
+                    <input type="text" class="form-control" name="last_name" placeholder="Nachname" value="{person.last_name}" required="true">
+                </div>
+             </div>
+             <div class="row">
+                <div class="form-group col-sm-3">
+                    <input type="text" class="form-control" name="drk" placeholder="DRK Nummer (optional)" value="{person.drk}">
+                </div>
+
+                <div class="form-group col-sm-3">
+                    <input type="text" class="form-control" name="lang" placeholder="Sprache (optional)" value="{person.lang}">
+                </div>
+
+                <div class="form-group col-sm-3">
+                    <input type="text" class="form-control" name="origin" placeholder="Herkunftsland (optional)" value="{person.origin}">
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-sm-3">
+                    <input type="submit" class="form-control btn-primary" value="Speichern">
+                </div>
+                </div>
+            </form>
+
+    </section><!-- /.content -->
+
+{/body}

@@ -1,0 +1,43 @@
+{>"layouts/master" /}
+
+{<body}
+    <!-- Content Header (Page header) -->
+            <section class="content-header">
+              <h1>
+                Ausgabe
+                <small>Person ausw&auml;hlen</small>
+              </h1>
+            </section>
+
+            <!-- Main content -->
+            <section class="content">
+
+              <div class="row">
+                <div class="col-sm-12" style="margin-bottom: 10px;">
+                <form class="form-inline">
+                    <input type="text" name="name" placeholder="Name" class="form-control" style="width: 300px">
+                    <button type="submit" class="form-control"><span class="fa fa-search"></span> Suchen</button>
+                </form>
+                </div>
+
+                    {#persons}
+                    <div class="col-sm-12">
+                        <a href="/disposal/new/{_id}" class="app-box" style="margin-bottom: 10px">{first_name}, {last_name}</a>
+                    </div>
+                    {/persons}
+              </div>
+            </section><!-- /.content -->
+{/body}
+
+<style>
+    .app-box{
+        display: block;
+        padding: 10px;
+        background-color: #fff;
+        margin-bottom: 10px;
+        border: 1px solid #ddd;
+        font-size: 16px;
+    }
+
+
+</style>

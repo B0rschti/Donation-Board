@@ -1,0 +1,35 @@
+{>"layouts/master" /}
+
+{<body}
+    <section class="content-header">
+                  <h1>
+                    Person
+                    <small>L&ouml;schen</small>
+                  </h1>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+
+        <form method="POST" action="/person/delete" class="form">
+
+                <input type="hidden" name="_csrf" value="{_csrf}">
+                <input type="hidden" name="_id" value="{person._id}"><br>
+             <div class="row">
+
+                <div class="col-sm-12">
+                    <p>M&ouml;chten Sie {person.first_name} {person.last_name} wirklich l&ouml;schen? Es gibt keine M&ouml;glichkeit diese Person hiernach wieder herzustellen.</p>
+                </div>
+
+                <div class="form-group col-sm-3">
+                    <button type="submit" class="form-control btn-danger btn-inline">L&ouml;schen</button>
+                </div>
+                <div class="form-group col-sm-3">
+                    <a class="btn btn-primary btn-block" href="/person/show/{person._id}">Abbrechen</a>
+                </div>
+                </div>
+            </form>
+
+    </section><!-- /.content -->
+
+{/body}
