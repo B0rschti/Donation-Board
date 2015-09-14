@@ -17,7 +17,6 @@ Installation:
 ToDo:
 =====
 
+- translations for everything
 - Use an emdedded db instead of mongodb
-- implement notes
 - use relative dates for the history view
-- some statistics stuff would be nice
