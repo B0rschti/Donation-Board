@@ -92,10 +92,11 @@
 
                             <div class="app-box clearfix" style="margin-bottom: 10px">
                                 <div class="pull-left" style="padding-top: 5px;">
-                                    {item.name} ({item.quantity} St&uuml;ck)
+                                    {item.name}
                                 </div>
                                 <div class="pull-right">
-                                    <input name="items[{item._id}]" type="number" max="{item.quantity}" class="form-control" value="{quantity}" />
+                                    <span style="margin-right: 20px;"><span class="fa fa-database text-blue" style="margin-right: 10px;"></span> {item.quantity}</span>
+                                    <input name="items[{item._id}]" style="width: 100px; display: inline-block;" type="number" max="{item.quantity}" class="form-control" value="{quantity}" />
                                 </div>
                             </div>
                         {/objects}
