@@ -74,8 +74,8 @@
                     <h3>Notizen</h3>
 
                     {#person.notes}
-                        <div class="alert alert-info">
-                            <p>{text}</p>
+                        <div class="alert alert-danger">
+                            <p><span class="fa fa-exclamation-triangle"></span> {text}</p>
                         </div>
                     {/person.notes}
                 </div>

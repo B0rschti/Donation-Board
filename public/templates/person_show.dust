@@ -22,23 +22,52 @@
 
                   <div class="row">
 
+                      <div class="col-sm-12">
+                                          <div class="row">
+                                              <div class="col-sm-3">
+                                                  <div class="info-box">
+                                                    <!-- Apply any bg-* class to to the icon to color it -->
+                                                    <span class="info-box-icon bg-blue"><i class="fa fa-user"></i></span>
+                                                    <div class="info-box-content">
+                                                      <span class="info-box-text">Name</span>
+                                                      <span class="info-box-number">{person.first_name}<br>{person.last_name}</span>
+                                                    </div><!-- /.info-box-content -->
+                                                  </div><!-- /.info-box -->
+                                              </div>
+                                              <div class="col-sm-3">
+                                                  <div class="info-box">
+                                                      <!-- Apply any bg-* class to to the icon to color it -->
+                                                      <span class="info-box-icon bg-red"><i class="fa fa-plus"></i></span>
+                                                      <div class="info-box-content">
+                                                          <span class="info-box-text">DRK Nummer</span>
+                                                          <span class="info-box-number">{person.drk}</span>
+                                                      </div><!-- /.info-box-content -->
+                                                  </div><!-- /.info-box -->
+                                              </div>
+                                              <div class="col-sm-3">
+                                                  <div class="info-box">
+                                                      <!-- Apply any bg-* class to to the icon to color it -->
+                                                      <span class="info-box-icon bg-aqua"><i class="fa fa-comments"></i></span>
+                                                      <div class="info-box-content">
+                                                          <span class="info-box-text">Sprache</span>
+                                                          <span class="info-box-number">{person.lang}</span>
+                                                      </div><!-- /.info-box-content -->
+                                                  </div><!-- /.info-box -->
+                                              </div>
+                                              <div class="col-sm-3">
+                                                  <div class="info-box">
+                                                      <!-- Apply any bg-* class to to the icon to color it -->
+                                                      <span class="info-box-icon bg-aqua"><i class="fa fa-globe"></i></span>
+                                                      <div class="info-box-content">
+                                                          <span class="info-box-text">Land</span>
+                                                          <span class="info-box-number">{person.origin}</span>
+                                                      </div><!-- /.info-box-content -->
+                                                  </div><!-- /.info-box -->
+                                              </div>
+                                          </div>
+                                      </div>
+
                       <div class="col-sm-7">
-
-
-                        <div class="infos row" style="margin-bottom: 20px;">
-                            <div class="col-sm-12">
-                                <h4>Infos</h4>
-                            </div>
-                            <div class="col-sm-4">
-                                DRK Nummer: <strong>{person.drk}</strong>
-                            </div>
-                            <div class="col-sm-4">
-                                Sprache: <strong>{person.lang}</strong>
-                            </div>
-                            <div class="col-sm-4">
-                                Land: <strong>{person.origin}</strong>
-                            </div>
-                        </div>
 
                         <div class="history">
                             <h4>Verlauf</h4>
@@ -77,8 +106,8 @@
                             </form>
 
                             {#person.notes}
-                                <div class="alert alert-info">
-                                    <p>{text}</p>
+                                <div class="alert alert-danger">
+                                    <p><span class="fa fa-exclamation-triangle"> {text}</p>
                                     <a href="/person/note/remove/{person._id}/{_id}">l&ouml;schen</a>
                                 </div>
                             {/person.notes}
